@@ -49,6 +49,11 @@ android {
 }
 
 dependencies {
+    implementation project(":core-data")
+
+    implementation project(':core-model')
+    implementation project(':core-network')
+    implementation project(':core-database')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
@@ -63,10 +68,17 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
+    //M3
+    implementation "androidx.compose.material3:material3:1.0.1"
+    implementation "androidx.compose.material3:material3-window-size-class:1.0.1"
+
     // di
     implementation "com.google.dagger:hilt-android:2.45"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     kapt "com.google.dagger:hilt-compiler:2.45"
+
+    // androidx startup 在应用程序启动时初始化组件
+    implementation "androidx.startup:startup-runtime:1.1.1"
 }
