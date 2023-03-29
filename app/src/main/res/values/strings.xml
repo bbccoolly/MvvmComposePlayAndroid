@@ -1,8 +1,6 @@
 <resources>
-    <string name="app_name">ComposeAndroid</string>
-    <string name="bottom_title_1_home">首页</string>
-    <string name="bottom_title_2_project">项目</string>
-    <string name="bottom_title_3_square">广场</string>
-    <string name="bottom_title_4_wechat">公众号</string>
-    <string name="bottom_title_5_mine">我的</string>
+    <string name="app_name">SunFlower</string>
+    <string name="tab_title_my_garden">我的花园</string>
+    <string name="tab_title_plant_list">植物目录</string>
+    <string name="menu_filter_by_grow_zone">按生长区筛选</string>
 </resources>
