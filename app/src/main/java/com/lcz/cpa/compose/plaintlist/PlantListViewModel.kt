@@ -27,6 +27,23 @@ class PlantListViewModel @Inject internal constructor(
     private val _uiState = MutableLiveData<BaseListUiModel<SunflowerPhotosEntity>>()
     val uiState: LiveData<BaseListUiModel<SunflowerPhotosEntity>> = _uiState
 
+    fun fetchSunFlowerPhotosInfo() {
+        viewModelScope.launch {
+            sunFlowerRepository.fetchSunFlowerPhotosInfo(
+                searchKey = "古装美女",
+                onStart = { emitUiState(isLoading = Event(content = true)) },
+                onComplete = { emitUiState(isLoading = Event(content = false)) },
+                onError = { emitUiState(toastMessage = Event(content = it.toString())) }
+            ).collect {
+                val entityList = it as ArrayList<SunflowerPhotosEntity>
+                emitUiState(
+                    listData = Event(content = entityList)
+                )
+                _plants.postValue(entityList)
+            }
+        }
+    }
+
     init {
         viewModelScope.launch {
             sunFlowerRepository.fetchSunFlowerPhotosInfo(
