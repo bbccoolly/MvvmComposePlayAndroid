@@ -21,7 +21,9 @@ data class UnsplashPhotoUrls(
 
 data class UnsplashUser(
     @field:SerializedName("name") val name: String,
-    @field:SerializedName("username") val username: String
+    @field:SerializedName("username") val username: String,
+    @field:SerializedName("portfolio_url") val portfolioUrl: String,
+
 ) {
     val attributionUrl: String
         get() {

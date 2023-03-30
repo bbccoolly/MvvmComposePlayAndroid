@@ -24,9 +24,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
 
-    //    private const val BASE_URL = "https://api.unsplash.com/"
+    private const val BASE_URL = "https://api.unsplash.com/"
 //    private const val BASE_URL = "https://pokeapi.co/api/v2/"
-    private const val BASE_URL = "https://www.wanandroid.com/"
+//    private const val BASE_URL = "https://www.wanandroid.com/"
 
     @Provides
     @Singleton

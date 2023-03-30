@@ -4,18 +4,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
 import androidx.core.view.MenuProvider
 import androidx.core.view.WindowCompat
 import com.google.accompanist.themeadapter.material.MdcTheme
 import com.lcz.cpa.compose.home.SunFlowerPage
-import com.lcz.cpa.ui.theme.LczMvvmComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

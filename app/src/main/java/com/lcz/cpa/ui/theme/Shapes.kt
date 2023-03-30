@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.lcz.cpa.compose.gallery
+package com.lcz.cpa.ui.theme
 
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Shapes
+import androidx.compose.ui.unit.dp
 
-@Composable
-fun GalleryScreen(
-    onPhotoClick: () -> Unit,
-    onUpClick: () -> Unit,
-) {
-    GalleryScreen(
-        onPhotoClick = onPhotoClick,
-        onUpClick = onUpClick,
+val Shapes.card: CornerBasedShape
+    get() = RoundedCornerShape(
+        topStart = 0.dp,
+        topEnd = 12.dp,
+        bottomStart = 12.dp,
+        bottomEnd = 0.dp
     )
-}

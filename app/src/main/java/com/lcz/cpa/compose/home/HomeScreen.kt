@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.google.accompanist.themeadapter.material.MdcTheme
-import com.lcz.core.model.sunflower.SunFlowerPlantEntity
+import com.lcz.core.model.sunflower.SunflowerPhotosEntity
 import com.lcz.cpa.R
 import com.lcz.cpa.compose.garden.GardenScreen
 import com.lcz.cpa.compose.plaintlist.PlantListScreen
@@ -50,7 +50,7 @@ enum class SunFlowerPage(
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    onPlantClick: (SunFlowerPlantEntity) -> Unit = {},
+    onPlantClick: (SunflowerPhotosEntity) -> Unit = {},
     onPageChange: (SunFlowerPage) -> Unit = {},
     onAttached: (Toolbar) -> Unit = {},
 ) {
@@ -70,7 +70,7 @@ fun HomeScreen(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomePagerScreen(
-    onPlantClick: (SunFlowerPlantEntity) -> Unit,
+    onPlantClick: (SunflowerPhotosEntity) -> Unit,
     onPageChange: (SunFlowerPage) -> Unit,
     modifier: Modifier = Modifier,
     pages: Array<SunFlowerPage> = SunFlowerPage.values()
