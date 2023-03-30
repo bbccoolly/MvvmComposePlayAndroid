@@ -21,15 +21,15 @@ import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.viewinterop.AndroidViewBinding
-import com.lcz.core.model.sunflower.SunFlowPlantEntity
-import com.lcz.cpa.R
-import com.lcz.cpa.databinding.HomeScreenBinding
-import kotlinx.coroutines.launch
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.google.accompanist.themeadapter.material.MdcTheme
+import com.lcz.core.model.sunflower.SunFlowerPlantEntity
+import com.lcz.cpa.R
 import com.lcz.cpa.compose.garden.GardenScreen
 import com.lcz.cpa.compose.plaintlist.PlantListScreen
+import com.lcz.cpa.databinding.HomeScreenBinding
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -50,7 +50,7 @@ enum class SunFlowerPage(
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    onPlantClick: (SunFlowPlantEntity) -> Unit = {},
+    onPlantClick: (SunFlowerPlantEntity) -> Unit = {},
     onPageChange: (SunFlowerPage) -> Unit = {},
     onAttached: (Toolbar) -> Unit = {},
 ) {
@@ -70,7 +70,7 @@ fun HomeScreen(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomePagerScreen(
-    onPlantClick: (SunFlowPlantEntity) -> Unit,
+    onPlantClick: (SunFlowerPlantEntity) -> Unit,
     onPageChange: (SunFlowerPage) -> Unit,
     modifier: Modifier = Modifier,
     pages: Array<SunFlowerPage> = SunFlowerPage.values()
@@ -105,16 +105,24 @@ fun HomePagerScreen(
 
         //pages
         HorizontalPager(
-            pageCount = pages.size,
-            state = pagerState,
-            verticalAlignment = Alignment.Top
+            pageCount = pages.size, state = pagerState, verticalAlignment = Alignment.Top
         ) { page ->
             when (pages[page]) {
                 SunFlowerPage.MY_GARDEN -> {
-                    GardenScreen(Modifier.fillMaxSize())
+                    GardenScreen(
+                        Modifier.fillMaxSize(), onAddPlantClick = {
+                            coroutineScope.launch {
+                                pagerState.animateScrollToPage(
+                                    SunFlowerPage.PLANT_LIST.ordinal
+                                )
+                            }
+                        }, onPlantClick = {
+                            onPlantClick(it.plant)
+                        }
+                    )
                 }
                 SunFlowerPage.PLANT_LIST -> {
-                    PlantListScreen(Modifier.fillMaxSize())
+                    PlantListScreen(onPlantClick = onPlantClick, modifier = Modifier.fillMaxSize())
                 }
             }
 

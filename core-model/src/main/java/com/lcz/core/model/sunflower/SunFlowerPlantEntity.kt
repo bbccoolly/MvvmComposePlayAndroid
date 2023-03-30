@@ -8,7 +8,7 @@ import java.util.*
  *
  * create by lcz on 2023-03-29
  */
-data class SunFlowPlantEntity(
+data class SunFlowerPlantEntity(
     val plantId: String,
     val name: String,
     val description: String,

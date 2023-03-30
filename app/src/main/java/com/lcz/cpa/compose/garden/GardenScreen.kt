@@ -3,6 +3,7 @@ package com.lcz.cpa.compose.garden
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.lcz.core.model.sunflower.PlantAndGardenPlantings
 
 /**
  *
@@ -13,6 +14,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun GardenScreen(
     modifier: Modifier = Modifier,
+    onAddPlantClick: () -> Unit,
+    onPlantClick: (PlantAndGardenPlantings) -> Unit,
 ) {
     GardenScreenS(
         modifier = modifier,
